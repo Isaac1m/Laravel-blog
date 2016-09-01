@@ -1,0 +1,39 @@
+
+
+nav,footer.page-footer,footer.page-footer .footer-copyright{
+	
+
+background-color: #E7E7E7;
+}
+.footer-copyright{
+	text-align: center;
+	margin-top: 10px;
+}
+
+ul li a i{
+	color: #E7E7E7;
+	margin-right: 10px;
+	margin-top: 0px;
+}
+.post{
+	padding-top: 5px;
+	margin-top: 5px;
+}
+
+.card-action i{
+	margin: 10px;
+} 
+i.fa,.card-title{
+	color: #26A69A;
+}
+.card .card-content a:hover{
+	color: #84ffff;
+	text-decoration: none;
+	opacity: .7;
+}
+.load-more{
+	text-align: center;
+}
+.btn-h1{
+	margin-top: 18px;
+}
