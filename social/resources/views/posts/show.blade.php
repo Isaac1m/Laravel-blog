@@ -8,7 +8,7 @@
 		{{ $post->body }}
 	</p>
 	</div>
-	
+
 <div class="col-md-4">
 	<div class ="well">
 		<dl class ="dl-horizontal">
@@ -30,7 +30,7 @@
 
 			    {!! Form::submit('Delete',['class'=>'btn btn-danger btn-block']) !!}
 			</div>
-			
+
 		</div>
 		<div class = "row">
 			<div class = "col-md-12">

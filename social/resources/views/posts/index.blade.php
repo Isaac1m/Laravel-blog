@@ -34,23 +34,20 @@
 	<td>{{$post->id}}</td>
 	<td>{{$post->title}}</td>
 	<td>{{substr($post->body, 0,50)}} {{ strlen($post->body) > 50 ? "..." : ""}}</td>
-	<td>{{date('M j, Y',strtotime($post->created_at))}}</td> 
+	<td>{{date('M j, Y',strtotime($post->created_at))}}</td>
 	<td>
 	<a href="{{route('posts.show',$post->id)}}" class = "btn btn-sm btn-default">View</a>
 	<a href="{{route('posts.edit',$post->id)}}" class = "btn btn-sm btn-primary">Edit</a>
 	</td>
 </tr>
 @endforeach
- 
+
 
   </tbody>
-</table>  
+</table>
 <div class = "text-center">
 {!! $posts->links()!!}
-</div>	
 </div>
-  </div> 
+</div>
+  </div>
 @endsection
-
-
-  

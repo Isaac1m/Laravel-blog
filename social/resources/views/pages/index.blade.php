@@ -20,8 +20,9 @@
     @foreach($posts as $post)
     <div class = "post">
         <h3>{{$post->title}}</h3>
-        <p>{{substr($post->body, 0,300)}} {{ strlen($post->body)>300 ? "..." : "" }} </p>
-        <a href="" class = "btn btn-primary btn-sm">More</a>
+        <p>{{substr($post->body, 0,500)}} {{ strlen($post->body)>300 ? "..." : "" }} </p>
+        <!-- url('blog/'.$post->slug)  has the same effect-->
+        <a href="{{route('blog.post',$post->slug)}}" class = "btn btn-primary btn-sm">More</a>
     </div>
     <hr>
     @endforeach

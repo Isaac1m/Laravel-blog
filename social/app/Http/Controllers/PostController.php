@@ -49,13 +49,16 @@ class PostController extends Controller
     {  //validate the data
         $this->validate($request, array(
              'title' => 'required | max:255',
-            'body' => 'required'
+             'slug' => 'required | alpha_dash | min:5 | max:255 | unique:posts,slug',
+             'body' => 'required'
+
         ));
 
         //store in database
         $post = new Post;
         $post->title = $request->title;
         $post->body = $request->body;
+        $post->slug = $request->slug;
         $post->save();
         //redirect to another page
         Session::flash('post-success', 'posted successfully');
@@ -99,18 +102,30 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         //validate the data
+         $post = Post::find($id);
+         // if slug hasn't change, do not validate it
+
+         if($request->input('slug') == $post->slug){
          $this->validate($request, array(
              'title' => 'required | max:255',
-             'body' => 'required'
+             'body'  => 'required'
         ));
+      } else{
+        $this->validate($request, array(
+            'title' => 'required | max:255',
+            'slug'  => 'required | min:5 | max: 255 | unique:posts,slug',
+            'body'  => 'required'
+       ));
+      }
 
         //save the data to the db
          /*no need to create a new Post object,
           *since we're editing an already existing post
           */
-        $post = Post::find($id);
-        $post->title = $request->input('title');
-        $post->body = $request->input('body');
+
+        $post->title  =  $request->input('title');
+        $post->slug   =  $request->input('slug');
+        $post->body   =  $request->input('body');
         $post->save();
         //set flash data with success message
         Session::flash('post-success', 'updated successfully');
